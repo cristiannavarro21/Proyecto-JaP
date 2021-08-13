@@ -139,3 +139,28 @@ a.custom-card:hover {
 .checked {
   color: orange;
 }
+
+.login-box {
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+}
+
+.login-box input[type= "text"],
+.login-box input[type= "password"] {
+height: 40px;
+font-size: 20px;
+border: none;
+}
+
+body {
+  background: #6ab8f8;
+  font-family: sans-serif;
+}
+
+.logo {
+  border-radius: 50px;
+  width: 700px;
+}
