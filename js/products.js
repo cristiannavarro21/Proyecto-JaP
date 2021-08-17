@@ -1,25 +1,35 @@
+var categoriesArray = [];
+
+function showCategoriesList(array){
+
+    
+    for (let i = 0; i < array.length; i++) {
+                
+        let row = "";
+        
+        row = ` 
+            <tr>
+             <td>`  + array[i].name + ` </td>
+             <td>`  + array[i].description + ` </td>
+             <td>`  + array[i].currency + ` </td>
+             <td>`  + array[i].cost + ` </td>
+             <td> <img height = "200" src = "https://cristiannavarro21.github.io/Proyecto-JaP/` + array[i].imgSrc + `" alt=""></td>
+            </tr>` ;
+
+        document.getElementById("data").innerHTML += row;
+    };
+};
+
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
-document.addEventListener("DOMContentLoaded", function (e) {
-    getJSONData(PRODUCTS_URL)
-        .then(result => {
-
-            for (let i = 0; i < result.length; i++) {
-                
-                let row = "";
-                
-                row = ` 
-                    <tr>
-                     <td>`  + result[i].name + ` </td>
-                     <td>`  + result[i].description + ` </td>
-                     <td>`  + result[i].currency + ` </td>
-                     <td>`  + result[i].cost + ` </td>
-                     <td> <img height = "70" src = "https://github.com/cristiannavarro21/Proyecto-JaP/img/` + result[i].imgSrc + `.jpg" alt="">  </td>
-                    </tr>` ;
-
-                document.getElementById("data").innerHTML += row;
-            };
-        });
-
+document.addEventListener("DOMContentLoaded", function(e){
+    getJSONData(PRODUCTS_URL).then(function(resultObj){
+        if (resultObj.status === "ok")
+        {
+            categoriesArray = resultObj.data;
+            //Muestro las categorías ordenadas
+            showCategoriesList(categoriesArray);
+        }
+    });
 });
