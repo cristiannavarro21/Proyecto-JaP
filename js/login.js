@@ -8,5 +8,5 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
 function submitStorage(){
     var email = document.getElementById("datoemail").value;
-    localStorage.setItem('User', mail);
+    localStorage.setItem('User', email);
 }
