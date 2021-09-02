@@ -26,7 +26,13 @@
       <a class="py-2 d-none d-md-inline-block" href="#" id="usuario">Usuario</a>
     </div>
   </nav>
-  <div class="row justify-content-end">
+  <div> 
+    Ordenar por Costo:
+    <input type="button" value="Ascendente" id="ordAsc">
+    <input type="button" value="Descendente" id="ordDesc">
+    <input type="button" value="Más vendido" id="ordVta">
+  </div>
+  <div class="row justify-content-end" >
     <div class="col-md-6"></div>
     <div class="col-md-6 col-sm-12 mb-1 container">
       <div class="row container p-0 m-0">
@@ -34,15 +40,15 @@
           <p class="font-weight-normal text-right my-2">Costo</p>
         </div>
         <div class="col">
-        <input class="form-control" type="number" placeholder="Min">
+        <input class="form-control" type="number" placeholder="Min" id="valorMin">
       </div>
       <div class="col">
-        <input class="form-control" type="number" placeholder="Max">
+        <input class="form-control" type="number" placeholder="Max" id="valorMax">
       </div>
         <div class="col-3 p-0">
           <div class="btn-group" role="group">
-            <button class="btn btn-light btn-block">Filtrar</button>
-            <button class="btn btn-link btn-sm">Limpiar</button>
+            <button class="btn btn-light btn-block" id="filtrar">Filtrar</button>
+            <button class="btn btn-link btn-sm" id="quitarFil">Limpiar</button>
           </div>
         </div>
       </div>
