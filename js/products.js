@@ -108,8 +108,8 @@ document.addEventListener("DOMContentLoaded", function (e) {
     });
 
     document.getElementById("quitarFil").addEventListener("click", function () {
-        document.getElementById("valorMin").value;
-        document.getElementById("valorMax").value;
+        document.getElementById("valorMin").value ="";
+        document.getElementById("valorMax").value ="";
 
         costMax = undefined;
         costMin = undefined;
