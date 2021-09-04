@@ -93,15 +93,14 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
         if ((costMin != undefined) && (costMin != "") && (parseInt(costMin)) >= 0) {
             costMin = parseInt(costMin);
-        }
-        else {
-            costMin = undefined;
+        }else {
+            costMin= undefined;
         }
 
         if ((costMax != undefined) && (costMax != "") && (parseInt(costMax)) >= 0) {
             costMax = parseInt(costMax);
-        }
-        else {
+        
+        }else {
             costMax = undefined;
         }
         listadoProductos(productos);
