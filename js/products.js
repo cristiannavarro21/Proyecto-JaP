@@ -12,7 +12,7 @@ function listadoProductos() {
             ((costMax == undefined) || (costMax != undefined && (autos.cost) <= costMax))) {
 
             listProductos += `
-            <a href="product-info.html" class="list-group-item list-group-item-action">
+            <a onclick= informacionProd(`+ autos.id +`) href="product-info.html" class="list-group-item list-group-item-action">
                 <div class="row">
                     <div class="col-3">
                         <img src="` + autos.imgSrc + `" alt=" " class="img-thumbnail">
@@ -58,6 +58,9 @@ function sortlistadoProdu(criterio, array) {
     return result;
 }
 
+function informacionProd(id) {
+    localStorage.setItem("json", id);
+}
 
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los

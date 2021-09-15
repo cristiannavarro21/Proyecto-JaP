@@ -1,31 +1,32 @@
 var infoProd = [];
 var infoComent = [];
+var detalle = localStorage.getItem("json");
 
-function prodInfo() {
+function prodInfo(info) {
 
     let informaProd = "";
-    for (let i = 0; i < infoProd.length; i++) {
-        let info = infoProd[i];
 
 
-        informaProd += `
-                    <div class="row">
-                    <div class="col">
-                        <div class="d-flex w-100 justify-content-between">
-                            <h4 class="mb-1">`+ info.name + `</h4>
-                            <small class="text-muted">` + info.currency + ` ` + info.cost + `</small>
-                        </div>
-                        <p class="mb-1">` + info.description + `</p>
-                        <p class="mb-1">` + info.soldCount + `</p>
-                    </div>
-                    <div class="col-3">
-                        <img src="` + info.images + `" alt=" " class="img-thumbnail">
-                    </div>
+    informaProd += `
+        <a href="product-info.html" class="list-group-item list-group-item-action">
+        <div class="row">
+            <div class="col-3">
+                <img src="` + info.images + `" alt=" " class="img-thumbnail">
+            </div>
+            <div class="col">
+                <div class="d-flex w-100 justify-content-between">
+                    <h4 class="mb-1">`+ info.name + `</h4>
+                    <small class="text-muted">` + info.currency + ` ` + info.cost + `</small>
                 </div>
-                `
-    }
+                <p class="mb-1">` + info.description + `</p>
+            </div>
+        </div>
+    </a>
+    `
     document.getElementById("listInfoProd").innerHTML = informaProd;
-};
+}
+
+
 
 function listComentarios() {
 
@@ -34,7 +35,7 @@ function listComentarios() {
         let coment = infoComent[i];
 
         comentarios += `
-        <a href="product-info.html" class="list-group-item list-group-item-action">
+        <div class="list-group-item list-group-item-action">
         <div class="row">
             <div class="col-3">
                 <img src="` + coment.img + `" alt=" " class="img-thumbnail">
@@ -48,11 +49,15 @@ function listComentarios() {
                 <p class="mb-1">` + coment.dateTime + `</p>
             </div>
         </div>
-    </a>
+    </div>
     `
 
     }
-    document.getElementById("listComProd").innerHTML = comentarios;
+    document.getElementById("listComProd").innerHTML = comentarios + `<br> <p> Comentarios:</p><textarea rows="5" cols="50" id="texto"></textarea> <br> <select name="select">
+    <option value="value1">Value 1</option>
+   <option value="value2" selected>Value 2</option>
+    <option value="value3">Value 3</option><option value="value4">Value 4</option><option value="value5">Value 5</option>
+   </select><br><br> <button>Enviar</button>`;;
 }
 
 //Función que se ejecuta una vez que se haya lanzado el evento de
@@ -60,7 +65,7 @@ function listComentarios() {
 //elementos HTML presentes.
 
 document.addEventListener("DOMContentLoaded", function (e) {
-    getJSONData(PRODUCT_INFO_URL).then(function (resultObj) {
+    getJSONData(PRODUCT_INFO_URL + detalle + ".json").then(function (resultObj) {
         if (resultObj.status === "ok") {
             infoProd = resultObj.data;
 
@@ -73,6 +78,6 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
             listComentarios(infoComent);
         }
-    })
+    });
 
 });

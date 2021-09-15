@@ -13,6 +13,7 @@ function showImagesGallery(array){
                 <img class="img-fluid img-thumbnail" src="` + imageSrc + `" alt="">
             </div>
         </div>
+        
         `
 
         document.getElementById("productImagesGallery").innerHTML = htmlContentToAppend;
