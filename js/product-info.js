@@ -1,32 +1,29 @@
 var infoProd = [];
 var infoComent = [];
-var detalle = localStorage.getItem("json");
-
-function prodInfo(info) {
-
-    let informaProd = "";
+var idprod = localStorage.getItem("json");
+var detalle = {};
+const ratingStars = [...document.getElementsByClassName("rating__star")];
 
 
-    informaProd += `
-        <a href="product-info.html" class="list-group-item list-group-item-action">
-        <div class="row">
-            <div class="col-3">
-                <img src="` + info.images + `" alt=" " class="img-thumbnail">
-            </div>
-            <div class="col">
-                <div class="d-flex w-100 justify-content-between">
-                    <h4 class="mb-1">`+ info.name + `</h4>
-                    <small class="text-muted">` + info.currency + ` ` + info.cost + `</small>
-                </div>
-                <p class="mb-1">` + info.description + `</p>
+function showImagesGallery(array) {
+
+    let galleriaImag = "";
+
+    for (let i = 0; i < array.length; i++) {
+        let imageSrc = array[i];
+
+        galleriaImag += `
+        <div class="col-lg-3 col-md-4 col-6">
+            <div class="d-block mb-4 h-100">
+                <img class="img-fluid img-thumbnail" src="` + imageSrc + `" alt="">
             </div>
         </div>
-    </a>
-    `
-    document.getElementById("listInfoProd").innerHTML = informaProd;
+        
+        `
+
+        document.getElementById("imagesProd").innerHTML = galleriaImag;
+    }
 }
-
-
 
 function listComentarios() {
 
@@ -35,29 +32,24 @@ function listComentarios() {
         let coment = infoComent[i];
 
         comentarios += `
-        <div class="list-group-item list-group-item-action">
+        
         <div class="row">
-            <div class="col-3">
-                <img src="` + coment.img + `" alt=" " class="img-thumbnail">
+            <div class="col-2 container">
+                <img src="` + coment.img + `"alt=" " class="img-coment img-thumbnail">
             </div>
             <div class="col">
                 <div class="d-flex w-100 justify-content-between">
                     <h4 class="mb-1">`+ coment.user + `</h4>
-                    <small class="text-muted">` + coment.score + `</small>
+                    <p class="text-muted">` + coment.score + `
+                    <span class="fa fa-star checked"></span></p>
                 </div>
                 <p class="mb-1">` + coment.description + `</p>
                 <p class="mb-1">` + coment.dateTime + `</p>
             </div>
         </div>
-    </div>
     `
-
     }
-    document.getElementById("listComProd").innerHTML = comentarios + `<br> <p> Comentarios:</p><textarea rows="5" cols="50" id="texto"></textarea> <br> <select name="select">
-    <option value="value1">Value 1</option>
-   <option value="value2" selected>Value 2</option>
-    <option value="value3">Value 3</option><option value="value4">Value 4</option><option value="value5">Value 5</option>
-   </select><br><br> <button>Enviar</button>`;;
+    document.getElementById("listComProd").innerHTML = comentarios;
 }
 
 //Función que se ejecuta una vez que se haya lanzado el evento de
@@ -65,14 +57,30 @@ function listComentarios() {
 //elementos HTML presentes.
 
 document.addEventListener("DOMContentLoaded", function (e) {
-    getJSONData(PRODUCT_INFO_URL + detalle + ".json").then(function (resultObj) {
+    getJSONData(PRODUCT_INFO_URL + idprod + ".json").then(function (resultObj) {
         if (resultObj.status === "ok") {
-            infoProd = resultObj.data;
 
-            prodInfo(infoProd);
+            detalle = resultObj.data;
+
+            let categoryNameHTML = document.getElementById("nameProd");
+            let categoryDescriptionHTML = document.getElementById("descriptionProd");
+            let productCostHTML = document.getElementById("costProd");
+            let productCountHTML = document.getElementById("counProd");
+            let productCriteriaHTML = document.getElementById("criterioProd");
+
+
+            categoryNameHTML.innerHTML = detalle.name;
+            categoryDescriptionHTML.innerHTML = detalle.description;
+            productCostHTML.innerHTML = (detalle.currency + " " + detalle.cost);
+            productCountHTML.innerHTML = detalle.soldCount;
+            productCriteriaHTML.innerHTML = detalle.category;
+
+            //Muestro las imagenes en forma de galería
+            showImagesGallery(detalle.images);
+
         }
     })
-    getJSONData(PRODUCT_INFO_COMMENTS_URL).then(function (resultObj) {
+    getJSONData(PRODUCT_INFO_COMMENTS_URL + idprod + ".json").then(function (resultObj) {
         if (resultObj.status === "ok") {
             infoComent = resultObj.data;
 
@@ -81,3 +89,6 @@ document.addEventListener("DOMContentLoaded", function (e) {
     });
 
 });
+
+ 
+

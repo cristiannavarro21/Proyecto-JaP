@@ -2,8 +2,8 @@ const CATEGORIES_URL = "https://japdevdep.github.io/ecommerce-api/category/all.j
 const PUBLISH_PRODUCT_URL = "https://japdevdep.github.io/ecommerce-api/product/publish.json";
 const CATEGORY_INFO_URL = "https://japdevdep.github.io/ecommerce-api/category/1234.json";
 const PRODUCTS_URL = "https://cristiannavarro21.github.io/Json-Obligatorio/listadonew.json";
-const PRODUCT_INFO_URL = "https://cristiannavarro21.github.io/Json-Obligatorio/";
-const PRODUCT_INFO_COMMENTS_URL = "https://cristiannavarro21.github.io/Proyecto-JaP/js/comentarios.json";
+const PRODUCT_INFO_URL = "https://cristiannavarro21.github.io/Json-Obligatorio/info/";
+const PRODUCT_INFO_COMMENTS_URL = "https://cristiannavarro21.github.io/Json-Obligatorio/comentarios/";
 const CART_INFO_URL = "https://japdevdep.github.io/ecommerce-api/cart/987.json";
 const CART_BUY_URL = "https://japdevdep.github.io/ecommerce-api/cart/buy.json";
 
