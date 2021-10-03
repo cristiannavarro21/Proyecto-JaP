@@ -22,8 +22,16 @@
       <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
       <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
       <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
-      <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
-      <a class="py-2 d-none d-md-inline-block" href="#" id="usuario">Usuario</a>
+      <div class="dropdown">
+        <button class="btn btn-dark dropdown-toggle" type="button" id="usuario"
+          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        </button>
+        <div class="dropdown-menu" aria-labelledby="usuario">
+          <a class="dropdown-item" href="cart.html">Ver mi carrito</a>
+          <a class="dropdown-item" href="my-profile.html">Mi perfil</a>
+          <a class="dropdown-item" onclick= localStorage.clear() href="index.html">Cerrar sesión</a>
+        </div>
+      </div>
     </div>
   </nav>
   <div class="text-center p-4">
@@ -40,7 +48,7 @@
         <div class="col">
           <input class="form-control" type="number" placeholder="Min" id="valorMin">
         </div>
-        <div class="col mr-2">
+        <div class="col">
           <input class="form-control" type="number" placeholder="Max" id="valorMax">
         </div>
         <div class="col-3 p-0">
@@ -59,14 +67,14 @@
           <div class="col">
             <p class="font-weight-normal text-right my-2">Ordenar</p>
           </div>
-          <label class="btn btn-light">
-            <input type="button" value="Ascendente" id="ordAsc">
+          <label>
+            <input type="button" class="btn btn-primary mr-1" value="Ascendente" id="ordAsc">
           </label>
-          <label class="btn btn-light">
-            <input type="button" value="Descendente" id="ordDesc">
+          <label>
+            <input type="button" class="btn btn-primary mr-1" value="Descendente" id="ordDesc">
           </label>
-          <label class="btn btn-light">
-            <input type="button" value="Más vendido" id="ordVta">
+          <label>
+            <input type="button" class="btn btn-primary mr-1" value="Más vendido" id="ordVta">
           </label>
         </div>
       </div>

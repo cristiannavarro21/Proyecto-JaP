@@ -58,10 +58,6 @@ function sortlistadoProdu(criterio, array) {
     return result;
 }
 
-function informacionProd(id) {
-    localStorage.setItem("json", id);
-}
-
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
