@@ -41,25 +41,107 @@
       <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
       <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
       <div class="dropdown">
-        <button class="btn btn-dark dropdown-toggle" type="button" id="usuario"
-          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <button class="btn btn-dark dropdown-toggle" type="button" id="usuario" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
         </button>
         <div class="dropdown-menu" aria-labelledby="usuario">
           <a class="dropdown-item" href="cart.html">Ver mi carrito</a>
           <a class="dropdown-item" href="my-profile.html">Mi perfil</a>
-          <a class="dropdown-item" onclick= localStorage.clear() href="index.html">Cerrar sesión</a>
+          <a class="dropdown-item" onclick=localStorage.clear() href="index.html">Cerrar sesión</a>
         </div>
       </div>
     </div>
   </nav>
-  <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 5 (Fecha de entrega: 17/10/2021) y Entrega 7 (Fecha de entrega: 14/11/2021).</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
+  <div class="text-center p-4">
+    <h2>Tu carrito de compras</h2>
+    <p class="lead">Verás aquí tus productos seleccionados.</p>
+  </div>
+  <div class="container">
+    <div class="col-12 col-lg-">
+      <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th>Imagen</th>
+            <th>Producto</th>
+            <th>Moneda</th>
+            <th>Precio</th>
+            <th>Cantidad</th>
+            <th>SubTotal x Art.</th>
+          </tr>
+        </thead>
+        <tbody id=artCarrito></tbody>
+
+        <div class="col-12 col-lg-6">
+          <tr>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th class="table-dark">SubTotal:</th>
+            <th id=subTotalGeneral></th>
+          </tr>
+          <tr>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th class="table-dark">Costo de Envío:</th>
+            <th id=costoEnvio></th>
+          </tr>
+          <tr>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th class="table-dark">Total:</th>
+            <th id=totalGeneral></th>
+          </tr>
+        </div>
+      </table>
     </div>
   </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-flex col-12 col-lg-6">
+        <h3>Envio a Domicilio:</h3>
+        <form>
+          <div class="form-group">
+            <label for="formGroupExampleInput">Dirección</label>
+            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Calle/Número/Esquina">
+          </div>
+          <div class="form-group">
+            <label for="formGroupExampleInput2">País</label>
+            <input type="text" class="form-control" id="País" placeholder="País">
+          </div>
+        </form>
+        <select name="Método de Envío">
+          <option selected value="0"> Método de Envío:</option>
+          <option value="1">Premium(2-5 días)</option>
+          <option value="2">Express(5-8 días)</option>
+          <option value="3">Standard(12-15 días)</option>
+        </select>
+      </div>
+      <div class="col-12 col-lg-6">
+        <div class="text-center p-4">
+        <h3>Método de Pago</h3>
+      
+        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+          <label class="btn btn-dark active">
+            <input type="radio" name="options" id="option1" autocomplete="off">Tarjeta de crédito
+          </label>
+          <label class="btn btn-dark">
+            <input type="radio" name="options" id="option2" autocomplete="off"> Transferencia bancaria
+          </label>
+        </div>
+      </div>
+      </div>
+    </div>
+    <input type="button" class="btn btn-primary m-2" value="Finalizar Compra">
+  </div><br>
+  
+  
+
   <div id="spinner-wrapper">
     <div class="lds-ring">
       <div></div>

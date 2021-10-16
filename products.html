@@ -23,13 +23,13 @@
       <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
       <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
       <div class="dropdown">
-        <button class="btn btn-dark dropdown-toggle" type="button" id="usuario"
-          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <button class="btn btn-dark dropdown-toggle" type="button" id="usuario" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
         </button>
         <div class="dropdown-menu" aria-labelledby="usuario">
           <a class="dropdown-item" href="cart.html">Ver mi carrito</a>
           <a class="dropdown-item" href="my-profile.html">Mi perfil</a>
-          <a class="dropdown-item" onclick= localStorage.clear() href="index.html">Cerrar sesión</a>
+          <a class="dropdown-item" onclick=localStorage.clear() href="index.html">Cerrar sesión</a>
         </div>
       </div>
     </div>
@@ -37,30 +37,32 @@
   <div class="text-center p-4">
     <h2>Productos</h2>
     <p class="lead">Verás aquí todas los productos del sitio.</p>
-</div>
-  <div class="row">
-    <div class="col-md-6"></div>
-    <div class="col-md-6 col-sm-12 mb-1">
-      <div class="row container m-1">
-        <div class="col">
-          <p class="font-weight-normal text-right my-2">Costo</p>
-        </div>
-        <div class="col">
-          <input class="form-control" type="number" placeholder="Min" id="valorMin">
-        </div>
-        <div class="col">
-          <input class="form-control" type="number" placeholder="Max" id="valorMax">
-        </div>
-        <div class="col-3 p-0">
-          <div class="btn-group" role="group">
-            <button class="btn btn-light btn-block mr-1" id="filtrar">Filtrar</button>
-            <button class="btn btn-dark btn-sm" id="quitarFil">Limpiar</button>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6"></div>
+      <div class="col-md-6 col-sm-12">
+        <div class="row m-1">
+          <div class="col">
+            <p class="font-weight-normal text-right my-2">Costo</p>
+          </div>
+          <div class="col">
+            <input class="form-control" type="number" placeholder="Min" id="valorMin">
+          </div>
+          <div class="col">
+            <input class="form-control" type="number" placeholder="Max" id="valorMax">
+          </div>
+          <div class="col-3 p-0">
+            <div class="btn-group" role="group">
+              <button class="btn btn-light btn-block mr-1" id="filtrar">Filtrar</button>
+              <button class="btn btn-dark btn-sm" id="quitarFil">Limpiar</button>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-  <div class="container p-1">
+
+
     <div class="row">
       <div class="col text-right">
         <div class="btn-group btn-group-toggle mb-2" data-toggle="buttons">
