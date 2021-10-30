@@ -41,25 +41,73 @@
       <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
       <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
       <div class="dropdown">
-        <button class="btn btn-dark dropdown-toggle" type="button" id="usuario"
-          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <button class="btn btn-dark dropdown-toggle" type="button" id="usuario" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
         </button>
         <div class="dropdown-menu" aria-labelledby="usuario">
           <a class="dropdown-item" href="cart.html">Ver mi carrito</a>
           <a class="dropdown-item" href="my-profile.html">Mi perfil</a>
-          <a class="dropdown-item" onclick= localStorage.clear() href="index.html">Cerrar sesión</a>
+          <a class="dropdown-item" onclick=localStorage.removeItem(User) href="index.html">Cerrar sesión</a>
         </div>
       </div>
     </div>
   </nav>
-  <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 6 (Fecha de entrega: 31/10/2021).</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
-    </div>
+  <div class="text-center p-4">
+    <h2>Perfil Personal</h2>
+    <p class="lead">Verás aquí toda tu información.</p>
   </div>
+  <div class="container">
+    <form>
+      <div class="row">
+        <div class="col-12 col-lg-6">
+          <label for="name">Nombre</label>
+          <input type="text" class="form-control" id="name" value="" placeholder="">
+        </div><br>
+        <div class="col-12 col-lg-6">
+          <label for="name">Apellido</label>
+          <input type="text" class="form-control" id="lastname" value="" placeholder="">
+        </div>
+      </div><br>
+      <div>
+
+        <label for="start">Fecha de Nacimiento</label>
+
+        <input type="date" id="start" name="trip-start" value="" min="1950-01-01" max="2021-12-31">
+      </div><br>
+      <div class="form-group">
+        <label for="exampleInputEmail1">Dirección de Email</label>
+        <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="">
+        <small class="form-text text-muted">Nunca compartiremos su correo electrónico con nadie
+          más.</small>
+      </div>
+      <div class="row">
+        <div class="col-12 col-lg-4">
+          <label for="exampleInputCiudad">Ciudad</label>
+          <input type="text" class="form-control" id="ciudad" placeholder="">
+        </div>
+        <div class="col-12 col-lg-4">
+          <label for="exampleInputDireccion">Dirección</label>
+          <input type="text" class="form-control" id="direccion" placeholder="">
+        </div>
+        <div class="col-12 col-lg-2">
+          <label for="exampleInputHouse">Número</label>
+          <input type="text" class="form-control" id="numberhouse" placeholder="">
+        </div>
+        <div class="col-12 col-lg-8">
+          <label for="exampleInputPhono">Número de Contacto</label>
+          <input type="text" class="form-control" id="contact" placeholder="">
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-primary m-3" onclick="submitProfile();">Guardar Cambios</button>
+
+    </form>
+
+
+
+
+  </div>
+
   <footer class="text-muted bg-light">
     <div class="container">
       <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>

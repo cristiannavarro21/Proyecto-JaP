@@ -1,6 +1,6 @@
 var compra = {};
 
-function subTotal() {
+function subTotalGen() {
     let total = 0;
     let subge = document.getElementsByClassName("subtotalg");
     for (let i = 0; i < subge.length; i++) {
@@ -23,7 +23,7 @@ function subTotalArt(a, i) {
     }
 
     document.getElementById(`artSub${i}`).innerHTML = subtotal;
-    subTotal()
+    subTotalGen()
 }
 
 
@@ -49,13 +49,13 @@ function carrito(array) {
                         <input style="width:3em;background: #7dbff5;" onchange="subTotalArt(${articles.unitCost},${i})" 
                         type="number" id="cant${i}" value="${articles.count}" min="1">
                         </td>
-                        <td><span class="subtotalg" id="artSub${i}">${sub}</span></td>
+                        <td class="subtotalg" id="artSub${i}">${sub}</td>
                     </tr>
                     ` ;
         document.getElementById("artCarrito").innerHTML += row;
 
     }
-    subTotal()
+    subTotalGen()
 }
 
 

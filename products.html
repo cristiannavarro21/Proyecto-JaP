@@ -29,7 +29,7 @@
         <div class="dropdown-menu" aria-labelledby="usuario">
           <a class="dropdown-item" href="cart.html">Ver mi carrito</a>
           <a class="dropdown-item" href="my-profile.html">Mi perfil</a>
-          <a class="dropdown-item" onclick=localStorage.clear() href="index.html">Cerrar sesión</a>
+          <a class="dropdown-item" onclick=localStorage.removeItem(User) href="index.html">Cerrar sesión</a>
         </div>
       </div>
     </div>
@@ -40,50 +40,44 @@
   </div>
   <div class="container">
     <div class="row">
-      <div class="col-md-6"></div>
-      <div class="col-md-6 col-sm-12">
-        <div class="row m-1">
-          <div class="col">
-            <p class="font-weight-normal text-right my-2">Costo</p>
-          </div>
-          <div class="col">
-            <input class="form-control" type="number" placeholder="Min" id="valorMin">
-          </div>
-          <div class="col">
-            <input class="form-control" type="number" placeholder="Max" id="valorMax">
-          </div>
-          <div class="col-3 p-0">
-            <div class="btn-group" role="group">
-              <button class="btn btn-light btn-block mr-1" id="filtrar">Filtrar</button>
-              <button class="btn btn-dark btn-sm" id="quitarFil">Limpiar</button>
-            </div>
-          </div>
+      <div class="col col-md-6">
+        <div>
+          <p>Orden:</p>
+          <input type="button" class="btn btn-primary" value="Ascendente" id="ordAsc">
+
+          <input type="button" class="btn btn-primary" value="Descendente" id="ordDesc">
+
+          <input type="button" class="btn btn-primary" value="Más vendido" id="ordVta">
+        </div>
+      </div>
+        
+      <div class="col col-md-6">
+        <p>Filtrar por Costo:</p>
+        <div class="row">
+          
+          <input class="form-control ml-1" type="number" placeholder="Max" id="valorMax" value="">
+          
+          <input class="form-control ml-1" type="number" placeholder="Min" id="valorMin" value="">
+          
+          <button class="btn btn-light ml-1" id="filtrar">Filtrar</button>
+          
+          <button class="btn btn-dark ml-1" id="quitarFil">Limpiar</button>
+        
+        </div>
+         
         </div>
       </div>
     </div>
+  </div><br><br>
 
 
-    <div class="row">
-      <div class="col text-right">
-        <div class="btn-group btn-group-toggle mb-2" data-toggle="buttons">
-          <div class="col">
-            <p class="font-weight-normal text-right my-2">Ordenar</p>
-          </div>
-          <label>
-            <input type="button" class="btn btn-primary mr-1" value="Ascendente" id="ordAsc">
-          </label>
-          <label>
-            <input type="button" class="btn btn-primary mr-1" value="Descendente" id="ordDesc">
-          </label>
-          <label>
-            <input type="button" class="btn btn-primary mr-1" value="Más vendido" id="ordVta">
-          </label>
-        </div>
-      </div>
-    </div>
+  
+<div class="container">
+  <div class="col">
+    <div id="data" class="row mx-3"></div>
   </div>
+</div>
 
-  <div id="data" class="container p-1"></div>
 
   <footer class="text-muted bg-light">
     <div class="container">

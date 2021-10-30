@@ -193,3 +193,7 @@ body {
 .img-coment {
   width: 150px
 }
+
+input[type=number] {
+  width: 120px;
+}

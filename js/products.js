@@ -12,20 +12,17 @@ function listadoProductos() {
             ((costMax == undefined) || (costMax != undefined && (autos.cost) <= costMax))) {
 
             listProductos += `
-            <a onclick= informacionProd(`+ autos.id +`) href="product-info.html" class="list-group-item list-group-item-action">
-                <div class="row">
-                    <div class="col-3">
-                        <img src="` + autos.imgSrc + `" alt=" " class="img-thumbnail">
-                    </div>
-                    <div class="col">
-                        <div class="d-flex w-100 justify-content-between">
-                            <h4 class="mb-1">`+ autos.name + `</h4>
-                            <small class="text-muted">` + autos.currency + ` ` + autos.cost + `</small>
-                        </div>
-                        <p class="mb-1">` + autos.description + `</p>
-                    </div>
-                </div>
-            </a>
+         <div class="col-md-6 col-lg-4">
+           <div class="card">
+            <img src="${autos.imgSrc}" class="card-img-top" alt="...">
+            <div class="card-body">
+             <h5 class="card-title">${autos.name}</h5>
+             <small class="text-muted">` + autos.currency + ` ` + autos.cost + `</small>
+             <p class="card-text">${autos.description}</p>
+             <a onclick= informacionProd(${autos.id}) href="product-info.html" class="btn btn-primary">Más Información</a>
+            </div>
+          </div>
+          </div>
             `
         }
         document.getElementById("data").innerHTML = listProductos;
@@ -93,29 +90,29 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
         if ((costMin != undefined) && (costMin != "") && (parseInt(costMin)) >= 0) {
             costMin = parseInt(costMin);
-        }else {
-            costMin= undefined;
+        } else {
+            costMin = undefined;
         }
 
         if ((costMax != undefined) && (costMax != "") && (parseInt(costMax)) >= 0) {
             costMax = parseInt(costMax);
-        
-        }else {
+
+        } else {
             costMax = undefined;
         }
         listadoProductos(productos);
     });
 
     document.getElementById("quitarFil").addEventListener("click", function () {
-        document.getElementById("valorMin").value ="";
-        document.getElementById("valorMax").value ="";
+        document.getElementById("valorMin").value = "";
+        document.getElementById("valorMax").value = "";
 
         costMax = undefined;
         costMin = undefined;
 
         listadoProductos(productos);
     });
-    
-    
+
+
 });
 
