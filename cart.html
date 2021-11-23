@@ -105,42 +105,97 @@
     <div class="row">
       <div class="col-12 col-lg-6">
         <h3>Envio a Domicilio:</h3>
-        <form>
+        <form id="myForm">
           <div class="form-group">
             <label for="formGroupExampleInput">Dirección</label>
-            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Calle/Número/Esquina">
+            <input type="text" class="form-control formuIn" id="formGroupExampleInput"
+              placeholder="Calle/Número/Esquina">
           </div>
           <div class="form-group">
             <label for="formGroupExampleInput2">País</label>
-            <input type="text" class="form-control" id="País" placeholder="País">
+            <input type="text" class="form-control formuIn" id="País" placeholder="País">
           </div>
-        </form>
-        <select name="Método de Envío">
-          <option selected value="0"> Método de Envío:</option>
-          <option value="1">Premium(2-5 días)</option>
-          <option value="2">Express(5-8 días)</option>
-          <option value="3">Standard(12-15 días)</option>
-        </select>
-      </div>
-      <div class="col-12 col-lg-6">
-        <div class="text-center p-4">
-        <h3>Método de Pago</h3>
+          <label for="">Método de Envío:</label>
+          <select id="metodoEnv" onchange="envio();" class="custom-select custom-select-lg mb-3 formuIn">
+            <option value="0">Seleccione Método</option>
+            <option value="1">Premium(2-5 días)</option>
+            <option value="2">Express(5-8 días)</option>
+            <option value="3">Standard(12-15 días)</option>
+          </select>
+          <button type="button" class="btn btn-primary" onclick=modal() data-toggle="modal" data-target="#staticBackdrop">
+            Forma de Pago
+          </button>
       
-        <div class="btn-group btn-group-toggle" data-toggle="buttons">
-          <label class="btn btn-dark active">
-            <input type="radio" name="options" id="option1" autocomplete="off">Tarjeta de crédito
-          </label>
-          <label class="btn btn-dark">
-            <input type="radio" name="options" id="option2" autocomplete="off"> Transferencia bancaria
-          </label>
-        </div>
-      </div>
+          <input type="submit" class="btn btn-primary m-2" value="Finalizar Compra">
+        </form>
       </div>
     </div>
-    <input type="button" class="btn btn-primary m-2" value="Finalizar Compra">
+
+    <!-- Button trigger modal -->
+   
+    <!-- Modal -->
+    <div id="pagos">
+      <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="staticBackdropLabel">Método de Pago</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <input type="radio" id="formPagTarj" value="1" name="pago" checked>Tarjeta de crédito
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="inputGroup-sizing-default">Número de Tarjeta</span>
+                </div>
+                <input type="number" id="numbercard" class="form-control formuOut" aria-label="Sizing example input"
+                  aria-describedby="inputGroup-sizing-default" min="0">
+              </div>
+              <div class="row">
+                <div class="col-4">
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="inputGroup-sizing-default">CVV</span>
+                    </div>
+                    <input type="number" id="CVV" class="form-control formuOut" aria-label="Sizing example input"
+                      aria-describedby="inputGroup-sizing-default" min="0">
+                  </div>
+                </div>
+                <div class="col-8">
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="inputGroup-sizing-default">Valida</span>
+                    </div>
+                    <input type="date" id="fechaven" class="form-control formuOut" aria-label="Sizing example input"
+                      aria-describedby="inputGroup-sizing-default">
+
+                  </div>
+                </div>
+              </div>
+              <input type="radio" id="formPagTranf" value="2" name="pago">Transferencia bancaria
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="inputGroup-sizing-default">Número de Transferencia
+                  </span>
+                </div>
+                <input type="number" id="numbertrans" class="form-control formuOut1" aria-label="Sizing example input"
+                  aria-describedby="inputGroup-sizing-default">
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+              <button type="button" class="btn btn-primary" data-dismiss="modal">Guardar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div><br>
-  
-  
+
+
 
   <div id="spinner-wrapper">
     <div class="lds-ring">
